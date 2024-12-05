@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Product List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **Product List Application** built with modern web technologies to provide a seamless user experience for browsing and managing products. The application is deployed and live at [wingman-test.vercel.app](https://wingman-test.vercel.app/).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Product Filtering:** Easily search and filter products by title.
+- **Responsive Design:** A polished UI that adapts to all screen sizes, powered by TailwindCSS and shadcn/ui.
+- **State Management:** Efficient state handling with Zustand.
+- **Modern Development Stack:** Developed using Vite, React, and TypeScript for fast and type-safe development.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **[React](https://reactjs.org/):** For building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/):** Adds static typing for a more robust codebase.
+- **[Vite](https://vitejs.dev/):** Fast and modern development tooling.
+- **[TailwindCSS](https://tailwindcss.com/):** For utility-first CSS styling.
+- **[Zustand](https://github.com/pmndrs/zustand):** A minimalistic state management solution.
+- **[shadcn/ui](https://shadcn.dev/):** Pre-configured components for building a polished UI.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation and Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/abiel13/wingman_test.git
+   cd wingman_test
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173/`.
+
+## Deployment
+
+The application is deployed on [Vercel](https://vercel.com/). Visit the live demo at [wingman-test.vercel.app](https://wingman-test.vercel.app/).
+
+## Folder Structure
+
+```
+src/
+├── components/    # Reusable UI components
+├── pages/         # Application pages
+├── store/         # Zustand state management
+├── styles/        # Global and TailwindCSS styles
+├── utils/         # Utility functions
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+**Author:** Abiel Asimiea  
+If you have any questions or feedback, feel free to reach out!
 ```
