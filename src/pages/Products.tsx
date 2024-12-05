@@ -4,6 +4,7 @@ import { getProduct } from "@/lib/actions/product.actions";
 import { StarIcon } from "lucide-react";
 import { productStore } from "@/store/product.store";
 import { useSearchParams } from "react-router";
+import ProductCard from "@/components/ProductCard";
 
 const Products: React.FC = () => {
   const { filtered, setFiltered, setProducts, products } = productStore();
@@ -19,11 +20,13 @@ const Products: React.FC = () => {
 
       if (query.length) {
         console.log(products);
-        const seived = products.filter(
+        const seived =
+        products.filter(
           (product) =>
-            product.title === query || product.title.includes(query as string)
-        ) || []; 
-
+            product.title.toLowerCase() === query.toLowerCase() ||
+            product.title.toLowerCase().includes(query.toLowerCase())
+        ) || [];
+      
 
         console.log(seived);
         setFiltered(seived);
@@ -38,41 +41,17 @@ const Products: React.FC = () => {
       <h1 className="text-2xl font-bold text-gray-600 font-sans">
         Latest Products
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-4 aspect-video ">
-        {filtered.map((product, index) => (
-          <div
-            className="flex flex-col max-w-lg bg-transparent  relative  shadow-md px-3 py-3 gap-y-8 max-h-[400px]"
-            key={index}
-          >
-            <div className="w-[200px]">
-              <img
-                src={product.image}
-                alt="product image"
-                className="max-w-[90%] aspect-square "
-              />
-            </div>
-
-            <div>
-              <h3 className="font-bold font-sans text-base text-ellipsis">
-                {product.title}
-              </h3>
-              <p>{product.description.substring(0, 76)}...</p>
-            </div>
-
-            <div className="flex justify-between items-center w-full">
-              <div className="px-6 py-1 rounded-full font-sans font-medium bg-gray-100 w-fit">
-                {product.category}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <StarIcon color="gold" fill="gold" />
-                <p>{product.rating.rate}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {filtered.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-4 aspect-video ">
+          {filtered.map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          <h1 className="font-bold">No Result found for Query</h1>
+        </div>
+      )}
     </div>
   );
 };
