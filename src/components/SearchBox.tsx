@@ -3,7 +3,7 @@ import { Input } from "./ui/input";
 import { useSearchParams } from "react-router";
 
 const SearchBox = () => {
-  const [search, setSearch] = useSearchParams();
+  const [_, setSearch] = useSearchParams();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch((prev) => {

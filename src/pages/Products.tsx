@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import { getProduct } from "@/lib/actions/product.actions";
-import { StarIcon } from "lucide-react";
 import { productStore } from "@/store/product.store";
 import { useSearchParams } from "react-router";
 import ProductCard from "@/components/ProductCard";
