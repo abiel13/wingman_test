@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 /*eslint-env node*/
+import tailwindanimate from 'tailwindcss-animate'
 
 export const content = ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"];
 export const theme = {
@@ -46,4 +47,4 @@ export const theme = {
     },
   },
 };
-export const plugins = [require("tailwindcss-animate")];
+export const plugins = [tailwindanimate];
