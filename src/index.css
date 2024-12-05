@@ -56,9 +56,7 @@
   margin: 0 auto;
   position: sticky;
 
-  z-index: 1000000;
-  top: 0;
-  backdrop-filter: blur(10px); /* Applies the blur effect */
+ /* Applies the blur effect */
   background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
 }
 
